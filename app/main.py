@@ -2,11 +2,15 @@ from datetime import datetime
 from time import sleep
 
 
-def main():
+def main() -> None:
     while True:
         c_time = datetime.now()
         try:
-            file_name = f"app-{c_time.hour}_{c_time.minute}_{c_time.second}.log"
+            file_name = (f"app-"
+                         f"{c_time.hour}_"
+                         f"{c_time.minute}_"
+                         f"{c_time.second}"
+                         f".log")
             with open(file_name, "w") as file:
                 c_time_str = c_time.strftime("%Y-%m-%d %H:%M:%S")
                 file.write(c_time_str)
